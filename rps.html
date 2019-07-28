@@ -1,0 +1,77 @@
+<script>
+
+    const rpsArray = ["Rock","Paper", "Scissors"];
+
+    function computerDesicion(){
+        computerSelection = rpsArray[Math.floor(Math.random()*rpsArray.length)];
+    }
+
+    let computerSelection = "";    
+    let playerSelection = "Rock";
+    let computerScore = 0;
+    let playerScore = 0;
+
+    function scoreCheck(){
+        if(computerScore == 5){
+            console.log("Computer Wins! Game Resetting...");
+            computerScore = 0;
+            playerScore = 0;
+        } else if (playerScore == 5){
+            console.log("You Win! Game Resetting");
+            computerScore = 0;
+            playerScore = 0;
+        }
+    }
+
+    function rockPlays(){
+        if(computerSelection == "Rock") {
+            console.log("Draw!")
+        } else if(computerSelection == "Paper") {
+            console.log("Paper beats Rock! You Lose!")
+            computerScore = computerScore + 1;
+        } else if(computerSelection == "Scissors") {
+            console.log("Rock beats Scissors!, You Win!")
+            playerScore = playerScore + 1;
+        }
+    }
+
+    function paperPlays(){
+        if(computerSelection == "Paper") {
+            console.log("Draw!")
+        } else if(computerSelection == "Scissors") {
+            console.log("Scissors beats Paper! You Lose!")
+            computerScore = computerScore + 1;
+        } else if(computerSelection == "Rock") {
+            console.log("Paper beats Rock!, You Win!");
+            playerScore = playerScore + 1;
+        }
+    }
+
+    function scissorPlays(){
+        if(computerSelection == "Scissors") {
+            console.log("Draw!")
+        } else if(computerSelection == "Rock") {
+            console.log("Rock beats Scissors! You Lose!")
+            computerScore = computerScore + 1;
+        } else if(computerSelection == "Paper") {
+            console.log("Scissors beats Paper!, You Win!");
+            playerScore = playerScore + 1;
+        }
+    }
+
+    function oneRound(){
+
+        computerDesicion();
+
+        if(playerSelection == "Rock"){
+            rockPlays();
+        } else if(playerSelection == "Paper"){
+            paperPlays();
+        } else if(playerSelection == "Scissors"){
+            scissorPlays();
+        };
+
+        scoreCheck();
+    }
+    
+</script>
